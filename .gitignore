@@ -9,3 +9,5 @@ backend/server.js
 .DS_Store
 server.js
 .server.js
+
+backend/
