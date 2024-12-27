@@ -1,0 +1,17 @@
+[33mcommit a070f6eaea615549b5c5867da3f479df431ed788[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Radek Kowalczyk <radekkowalczyk245@gmail.com>
+Date:   Fri Dec 27 16:39:03 2024 +0100
+
+    modified:   .gitignore
+
+[33mcommit 6519a3de130c97f22ec89e3fdf004e6a8b026d16[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Radek Kowalczyk <radekkowalczyk245@gmail.com>
+Date:   Fri Dec 27 16:36:34 2024 +0100
+
+    polaczenie sie z baza danych mongodb
+
+[33mcommit 1e6a32bb770c29678c0ef1ad4be2154714992d0a[m
+Author: Radek Kowalczyk <radekkowalczyk245@gmail.com>
+Date:   Fri Dec 27 14:01:58 2024 +0100
+
+    Initial commit: AnimeMood setup
