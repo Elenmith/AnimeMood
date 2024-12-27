@@ -7,3 +7,5 @@ frontend/build/
 
 # System
 .DS_Store
+
+server.js
