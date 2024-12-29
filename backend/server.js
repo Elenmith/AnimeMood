@@ -7,10 +7,14 @@ const Anime = require("./models/Anime");
 const cors = require("cors");
 const moodsRouter = require("./routes/moods");
 const app = express();
+const animeRouter = require("./routes/anime");
+const featuredAnimeRouter = require("./routes/featuredAnime");
 
 app.use(cors());
 app.use(express.json());
 app.use("/api/moods", moodsRouter);
+app.use("/api/anime", animeRouter);
+app.use("/api/featured-anime", featuredAnimeRouter);
 
 const mongoURI =
   "mongodb+srv://admin:ZaEpU6JjfWVoRaQk@animemood.hezaf.mongodb.net/?retryWrites=true&w=majority&appName=AnimeMood";

@@ -16,16 +16,16 @@ mongoose
 // Funkcja do pobierania danych z API
 const fetchAnimeData = async () => {
   try {
-    const response = await axios.get("https://api.jikan.moe/v4/top/anime"); // Pobierz popularne anime
+    const response = await axios.get("https://api.jikan.moe/v4/top/anime");
     const animeList = response.data.data;
 
     for (const anime of animeList) {
       const newAnime = new Anime({
         title: anime.title,
-        mood: [], // Dodaj nastroje ręcznie lub automatycznie później
         genres: anime.genres.map((g) => g.name),
         rating: anime.score || 0,
         imageUrl: anime.images.jpg.large_image_url,
+        moods: [], // Dodaj pole `moods` jako pustą tablicę
       });
 
       await newAnime.save();
@@ -39,5 +39,4 @@ const fetchAnimeData = async () => {
     mongoose.disconnect();
   }
 };
-
 fetchAnimeData();
