@@ -25,15 +25,44 @@ router.get("/posters", async (req, res) => {
 });
 
 // Pobierz szczegóły anime na podstawie ID
+// router.get("/:id", async (req, res) => {
+//   try {
+//     const anime = await Anime.findById(req.params.id); // Znajdź anime po ID
+//     if (!anime) {
+//       return res.status(404).json({ error: "Anime not found" });
+//     }
+//     res.json(anime);
+//   } catch (err) {
+//     res.status(500).json({ error: "Błąd podczas pobierania szczegółów anime" });
+//   }
+// });
+
 router.get("/:id", async (req, res) => {
   try {
-    const anime = await Anime.findById(req.params.id); // Znajdź anime po ID
+    const animeId = req.params.id;
+    const anime = await Anime.findById(animeId); // Znajdź anime w bazie danych
+
     if (!anime) {
       return res.status(404).json({ error: "Anime not found" });
     }
-    res.json(anime);
+
+    // Zwróć szczegółowe informacje
+    res.json({
+      title: anime.title,
+      imageUrl: anime.imageUrl,
+      rating: anime.rating,
+      duration: anime.duration, // Czas trwania
+      releaseDate: anime.releaseDate, // Data powstania
+      director: anime.director, // Reżyser
+      characters: anime.characters, // Główne postacie
+      voiceCast: anime.voiceCast, // Voice cast
+      streamingPlatforms: anime.streamingPlatforms, // Gdzie obejrzeć
+      genres: anime.genres, // Gatunki
+      moods: anime.moods, // Nastroje
+      gallery: anime.gallery, // Galeria zdjęć
+    });
   } catch (err) {
-    res.status(500).json({ error: "Błąd podczas pobierania szczegółów anime" });
+    res.status(500).json({ error: "Error fetching anime details" });
   }
 });
 
