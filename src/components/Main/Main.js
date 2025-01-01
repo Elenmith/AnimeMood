@@ -97,6 +97,13 @@ function Main() {
         </div>
       </div>
       {/* Karuzela pod wyszukiwaniem */}
+      <h2 className="carousel-h2">or try something random</h2>
+      <div className="main__carousel">
+        <Carousel animeList={animeList} />
+      </div>
+      <div className="main__carousel">
+        <Carousel animeList={animeList} />
+      </div>
       <div className="main__carousel">
         <Carousel animeList={animeList} />
       </div>

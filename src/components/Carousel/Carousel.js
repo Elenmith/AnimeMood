@@ -8,6 +8,11 @@ const Carousel = ({ animeList }) => {
 
   const navigate = useNavigate();
 
+  // Losowe sortowanie tablicy anime
+  const shuffledAnimeList = [...animeList]
+    .sort(() => Math.random() - 0.5)
+    .slice(0, 50);
+
   const settings = {
     infinite: true, // Nieskończona pętla
     speed: 2000, // Prędkość przesuwania
@@ -20,9 +25,8 @@ const Carousel = ({ animeList }) => {
 
   return (
     <div className="carousel-container">
-      <h2>Anime Posters</h2>
       <Slider {...settings}>
-        {animeList.map((anime) => (
+        {shuffledAnimeList.map((anime) => (
           <div
             key={anime._id} // Użycie `_id` jako klucza
             className="carousel-slide"
