@@ -8,7 +8,8 @@ import MoodPage from "./components/MoodPage/MoodPage";
 import AnimeDetail from "./components/AnimeDetail";
 import Footer from "./components/Footer/Footer";
 import Categories from "./components/Categories/Categories";
-// import Moods from "./Pages/Moods";
+import Moods from "./components/Moods/Moods";
+import MoodDetail from "./components/MoodDetails/MoodDetails"; // Nowa podstrona dla szczegółów nastroju
 
 function App() {
   const [animeList, setAnimeList] = useState([]);
@@ -36,7 +37,9 @@ function App() {
 
           <Route path="/categories" element={<Categories />} />
 
-          {/* <Route path="/moods" element={<Moods />} /> */}
+          <Route path="/moods" element={<Moods />} />
+
+          <Route path="/moods/:mood" element={<MoodDetail />} />
         </Routes>
         <Footer />
       </MoodProvider>
