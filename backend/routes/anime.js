@@ -79,4 +79,38 @@ router.get("/featured", async (req, res) => {
   }
 });
 
+router.get("/search", async (req, res) => {
+  try {
+    const animeId = req.params.id;
+    const anime = await Anime.findById(animeId); // Pobieranie ID z zapytania
+    if (!animeId) {
+      return res
+        .status(400)
+        .json({ error: "Query parameter 'id' is required" });
+    }
+
+    console.log("Received search ID:", animeId);
+
+    // Konwersja `id` na ObjectId
+    // if (!mongoose.Types.ObjectId.isValid(animeId)) {
+    //   return res.status(400).json({ error: "Invalid ID format" });
+    // }
+
+    const result = await Anime.findById(animeId, {
+      title: 1,
+      _id: 1,
+      imageUrl: 1,
+    });
+    if (!result) {
+      return res.status(404).json({ error: "Anime not found" });
+    }
+
+    console.log("Search result:", result);
+    res.json(result);
+  } catch (error) {
+    console.error("Error in /search endpoint:", error.message);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 module.exports = router;
