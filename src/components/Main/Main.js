@@ -5,7 +5,7 @@ import { MoodContext } from "../../context/MoodContext";
 import Carousel from "../Carousel/Carousel";
 
 function Main() {
-  const { moods } = useContext(MoodContext); // Pobieramy listę nastrojów z kontekstu
+  const { moods } = useContext(MoodContext);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredMoods, setFilteredMoods] = useState([]);
   const [animeList, setAnimeList] = useState([]);
@@ -13,6 +13,7 @@ function Main() {
   const [featuredAnime, setFeaturedAnime] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // Zmiana na LowerCase
   const handleInputChange = (e) => {
     const value = e.target.value.toLowerCase();
     setSearchTerm(value);
@@ -24,8 +25,8 @@ function Main() {
     setFilteredMoods(filtered);
   };
 
+  // Przekierowanie do strony z wybranym nastrojem
   const handleMoodClick = (mood) => {
-    // Przekierowanie do strony z wybranym nastrojem
     navigate(`/moods/${mood}`);
   };
 
@@ -44,6 +45,7 @@ function Main() {
     fetchAnime();
   }, []);
 
+  // Ustawianie anime dnia
   useEffect(() => {
     const fetchFeaturedAnime = async () => {
       try {
@@ -107,6 +109,7 @@ function Main() {
       <div className="main__carousel">
         <Carousel animeList={animeList} />
       </div>
+      {/* Karta do anime dnia */}
       {loading ? (
         <p>Loading featured anime...</p>
       ) : (

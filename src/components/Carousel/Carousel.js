@@ -4,8 +4,6 @@ import "./Carousel.css";
 import { useNavigate } from "react-router-dom";
 
 const Carousel = ({ animeList }) => {
-  // Ustawienia karuzeli
-
   const navigate = useNavigate();
 
   // Losowe sortowanie tablicy anime
@@ -13,6 +11,7 @@ const Carousel = ({ animeList }) => {
     .sort(() => Math.random() - 0.5)
     .slice(0, 50);
 
+  // Ustawienia karuzeli
   const settings = {
     infinite: true, // Nieskończona pętla
     speed: 2000, // Prędkość przesuwania
