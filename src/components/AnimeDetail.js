@@ -2,43 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./AnimeDetail.css";
 
-// function AnimeDetail() {
-//   const { id } = useParams(); // Pobierz ID z URL
-//   const [anime, setAnime] = useState(null);
-//   const [loading, setLoading] = useState(true);
-//   const [error, setError] = useState(null);
-
-//   useEffect(() => {
-//     const fetchAnimeDetail = async () => {
-//       try {
-//         const response = await fetch(`http://localhost:5000/api/anime/${id}`);
-//         if (!response.ok) {
-//           throw new Error("Nie udało się pobrać danych.");
-//         }
-//         const data = await response.json();
-//         setAnime(data);
-//         setLoading(false);
-//       } catch (err) {
-//         setError(err.message);
-//         setLoading(false);
-//       }
-//     };
-
-//     fetchAnimeDetail();
-//   }, [id]);
-
-//   if (loading) {
-//     return <p>Loading...</p>;
-//   }
-
-//   if (error) {
-//     return <p>Error: {error}</p>;
-//   }
-
-//   if (!anime) {
-//     return <p>Anime not found</p>;
-//   }
-
 const AnimeDetail = () => {
   const { id } = useParams();
   const [anime, setAnime] = useState(null);
@@ -69,19 +32,6 @@ const AnimeDetail = () => {
   }
 
   return (
-    // <div className="anime-detail">
-    //   <img
-    //     src={anime.imageUrl}
-    //     alt={anime.title}
-    //     className="anime-detail__image"
-    //   />
-    //   <h1 className="anime-detail__title">{anime.title}</h1>
-    //   <p className="anime-detail__rating">Rating: {anime.rating}</p>
-    //   {anime.description && (
-    //     <p className="anime-detail__description">{anime.description}</p>
-    //   )}
-    // </div>
-
     <div className="anime-detail">
       <div className="header">
         <img src={anime.imageUrl} alt={anime.title} />
