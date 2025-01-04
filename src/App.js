@@ -10,6 +10,7 @@ import Footer from "./components/Footer/Footer";
 import Categories from "./components/Categories/Categories";
 import Moods from "./components/Moods/Moods";
 import MoodDetail from "./components/MoodDetails/MoodDetails"; // Nowa podstrona dla szczegółów nastroju
+import NotFound from "./components/NotFound";
 
 function App() {
   const [animeList, setAnimeList] = useState([]);
@@ -40,6 +41,8 @@ function App() {
           <Route path="/moods" element={<Moods />} />
 
           <Route path="/moods/:mood" element={<MoodDetail />} />
+
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </MoodProvider>
