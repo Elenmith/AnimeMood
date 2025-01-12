@@ -85,5 +85,5 @@ npm start
 
 ### Author
 
-AnimeMood was created by [Elenmith]. Feel free to report issues or suggest enhancements through GitHub Issues.
+AnimeMood was created by Elenmith. Feel free to report issues or suggest enhancements through GitHub Issues.
 
