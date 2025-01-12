@@ -74,13 +74,13 @@ npm start
 
 ### Future Plans
 
-*Deployment on Heroku – Once the application is complete.
+* Deployment on Heroku – Once the application is complete.
 
-*Expanding the Database – Adding more titles and detailed tags.
+* Expanding the Database – Adding more titles and detailed tags.
 
-*Advanced Filtering – Options for genres and user ratings.
+* Advanced Filtering – Options for genres and user ratings.
 
-*API Integration – Fetching data from external anime sources.
+* API Integration – Fetching data from external anime sources.
 
 
 ### Author
