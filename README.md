@@ -18,7 +18,7 @@ The application is built using the following technologies:
 
 #### Frontend:
 
-*React.js – Dynamic and responsive user interface components.
+* React.js – Dynamic and responsive user interface components.
 
 * CSS – Styling for the application.
 
