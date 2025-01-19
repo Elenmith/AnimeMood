@@ -60,6 +60,7 @@ router.get("/:id", async (req, res) => {
       genres: anime.genres, // Gatunki
       moods: anime.moods, // Nastroje
       gallery: anime.gallery, // Galeria zdjęć
+      description: anime.synopsis,
     });
   } catch (err) {
     res.status(500).json({ error: "Error fetching anime details" });
