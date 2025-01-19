@@ -33,61 +33,56 @@ const AnimeDetail = () => {
 
   return (
     <div className="anime-detail">
-      <img className="detail-banner" src={anime.imageUrl} alt={anime.title} />
-      <div className="anime-detail-header">
-        <img src={anime.imageUrl} alt={anime.title} />
-        <div>
+      {/* Sekcja głównego baneru */}
+      <div className="anime-banner"></div>
+
+      {/* Sekcja głównego nagłówka */}
+      <div className="anime-header">
+        <div className="anime-poster">
+          <img src={anime.imageUrl} alt={anime.title} />
+        </div>
+        <div className="anime-info">
           <h1>{anime.title}</h1>
-          <p>Rating: {anime.rating} ⭐</p>
-          <p>Duration: {anime.duration || "Unknown"}</p>
-          <p>Release Date: {anime.releaseDate || "Unknown"}</p>
-          <p>Director: {anime.director || "Unknown"}</p>
+          <p className="anime-description">{anime.synopsis}</p>
+          <div className="anime-meta">
+            <p>
+              <strong>Director:</strong> {anime.director || "Unknown"}
+            </p>
+            <p>
+              <strong>Release Date:</strong> {anime.releaseDate || "Unknown"}
+            </p>
+            <p>
+              <strong>Duration:</strong> {anime.duration || "Unknown"}
+            </p>
+            <p>
+              <strong>Rating:</strong> {anime.rating || "N/A"} ⭐
+            </p>
+          </div>
         </div>
       </div>
-
-      <div className="genres">
-        <h3>Genres</h3>
-        <p>{anime.genres?.join(", ") || "No genres available"}</p>
+      {/* Sekcja gatunków */}
+      <div className="anime-genres">
+        {anime.genres?.map((genre, index) => (
+          <span key={index} className="anime-genre">
+            {genre}
+          </span>
+        ))}
       </div>
 
-      <div className="moods">
-        <h3>Moods</h3>
-        <p>{anime.moods?.join(", ") || "No moods available"}</p>
-      </div>
-
-      <div className="characters">
-        <h3>Main Characters</h3>
-        <ul>
-          {anime.characters?.map((character, index) => (
-            <li key={index}>{character}</li>
-          )) || <p>No characters available</p>}
-        </ul>
-      </div>
-
-      <div className="voice-cast">
-        <h3>Voice Cast</h3>
-        <ul>
-          {anime.voiceCast?.map((voice, index) => (
-            <li key={index}>{voice}</li>
-          )) || <p>No voice cast available</p>}
-        </ul>
-      </div>
-
-      <div className="gallery">
-        <h3>Posters</h3>
+      {/* Galeria */}
+      <div className="anime-gallery">
+        <h2>Gallery</h2>
         <div className="gallery-images">
           {anime.gallery?.map((image, index) => (
             <img key={index} src={image} alt={`Gallery ${index}`} />
-          )) || <p>No images available</p>}
+          ))}
         </div>
       </div>
 
-      <div className="streaming">
-        <h3>Where to Watch</h3>
-        <p>
-          {anime.streamingPlatforms?.join(", ") ||
-            "No streaming platforms available"}
-        </p>
+      {/* Obsada */}
+      <div className="anime-cast">
+        <h2>Voice Cast</h2>
+        <p>{anime.voiceCast?.join(", ") || "No voice cast available"}</p>
       </div>
     </div>
   );

@@ -13,13 +13,14 @@ const Carousel = ({ animeList, speed = 2000, autoplaySpeed = 3000 }) => {
 
   // Ustawienia karuzeli
   const settings = {
-    infinite: true,
-    speed, // Prędkość przesuwania (z props)
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed, // Czas przesunięcia (z props)
-    pauseOnHover: false,
+    infinite: true, // Nieskończona pętla
+    speed: 40000, // Prędkość animacji
+    slidesToShow: 5, // Widoczne obrazy
+    slidesToScroll: 20, // Liczba przesuwanych obrazów
+    autoplay: true, // Automatyczne przesuwanie
+    autoplaySpeed: 0, // Wyłączanie przerw między przesunięciami
+    cssEase: "linear", // Ruch liniowy (płynny)
+    pauseOnHover: false, // Zatrzymanie na hover
   };
 
   return (

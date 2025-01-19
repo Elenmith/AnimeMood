@@ -2,10 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Header.css"; // Import stylów
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Logo() {
-  return <div className="header__logo">AnimeMood</div>;
+  return (
+    <Link to="/" className="header__logo">
+      AnimeMood
+    </Link>
+  );
 }
 
 // Zrobić settera do bazy na endpoint animeList na 3 elementy albo skorzystać z postera i
@@ -125,8 +129,17 @@ function NavSocial() {
 }
 
 function Header() {
+  const location = useLocation();
+
+  // Zmienna określająca, czy jesteśmy na stronie głównej
+  const isHomePage = location.pathname === "/";
+
   return (
-    <header className="header">
+    <header
+      className={`header ${
+        isHomePage ? "header--transparent" : "header--solid"
+      }`}
+    >
       <Logo />
       <NavLinks />
       <SearchNav />
