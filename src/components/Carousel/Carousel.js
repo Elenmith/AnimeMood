@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "./Carousel.css";
 import { useNavigate } from "react-router-dom";
 
-const Carousel = ({ animeList }) => {
+const Carousel = ({ animeList, speed = 2000, autoplaySpeed = 3000 }) => {
   const navigate = useNavigate();
 
   // Losowe sortowanie tablicy anime
@@ -13,13 +13,13 @@ const Carousel = ({ animeList }) => {
 
   // Ustawienia karuzeli
   const settings = {
-    infinite: true, // Nieskończona pętla
-    speed: 2000, // Prędkość przesuwania
-    slidesToShow: 5, // Liczba widocznych obrazów
-    slidesToScroll: 1, // Liczba przesuwanych obrazów
-    autoplay: true, // Automatyczne przesuwanie
-    autoplaySpeed: 2000, // Czas przesunięcia
-    pauseOnHover: true, // Zatrzymanie najechania myszką
+    infinite: true,
+    speed, // Prędkość przesuwania (z props)
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed, // Czas przesunięcia (z props)
+    pauseOnHover: false,
   };
 
   return (

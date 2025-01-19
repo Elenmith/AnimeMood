@@ -102,13 +102,13 @@ function Main() {
       {/* Karuzela pod wyszukiwaniem */}
       <h2 className="carousel-h2">or try something random</h2>
       <div className="main__carousel">
-        <Carousel animeList={animeList} />
+        <Carousel animeList={animeList} speed={2000} autoplaySpeed={3000} />
       </div>
       <div className="main__carousel">
-        <Carousel animeList={animeList} />
+        <Carousel animeList={animeList} speed={2500} autoplaySpeed={3500} />
       </div>
       <div className="main__carousel">
-        <Carousel animeList={animeList} />
+        <Carousel animeList={animeList} speed={3000} autoplaySpeed={4000} />
       </div>
       {/* Karta do anime dnia */}
       <h2 className="suggestion-h2">This is our suggestion for today!</h2>
