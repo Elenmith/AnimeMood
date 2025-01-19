@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./Main.css";
 import { MoodContext } from "../../context/MoodContext";
 import Carousel from "../Carousel/Carousel";
+import FeaturedAnime from "../FeaturedAnime/FeaturedAnime";
 
 function Main() {
   const { moods } = useContext(MoodContext);
@@ -110,18 +111,8 @@ function Main() {
         <Carousel animeList={animeList} />
       </div>
       {/* Karta do anime dnia */}
-      {loading ? (
-        <p>Loading featured anime...</p>
-      ) : (
-        featuredAnime && (
-          <div className="featured-anime">
-            <img src={featuredAnime.imageUrl} alt={featuredAnime.title} />
-            <h2>{featuredAnime.title}</h2>
-            <p>{featuredAnime.description}</p>
-            <p>Rating: {featuredAnime.rating}</p>
-          </div>
-        )
-      )}
+      <h2 className="suggestion-h2">This is our suggestion for today!</h2>
+      <FeaturedAnime loading={loading} featuredAnime={featuredAnime} />
     </main>
   );
 }

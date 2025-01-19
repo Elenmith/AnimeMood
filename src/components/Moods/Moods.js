@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import "./Moods.css";
 
 const Moods = () => {
   const [moods, setMoods] = useState([]);

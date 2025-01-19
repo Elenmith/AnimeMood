@@ -1,5 +1,6 @@
 import React from "react";
 import "./Footer.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -7,9 +8,9 @@ const Footer = () => {
       <div className="footer-content">
         <p>&copy; {new Date().getFullYear()} AnimeMood. All rights reserved.</p>
         <div className="footer-links">
-          <a href="/about" className="footer-link">
+          <Link to="/about" className="footer-link">
             About Us
-          </a>
+          </Link>
           <a href="/contact" className="footer-link">
             Contact
           </a>

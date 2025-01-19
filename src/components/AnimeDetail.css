@@ -1,41 +1,31 @@
-/* .anime-detail {
-  padding: 20px;
-  font-family: Arial, sans-serif;
-  color: #333;
+.anime-detail {
+  margin: 20px;
 }
 
-.header {
+.detail-banner {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.anime-detail-header {
+  color: red;
+  border: 1px solid red;
   display: flex;
   gap: 20px;
-  margin-bottom: 20px;
 }
 
-.header img {
-  width: 200px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.header div {
-  flex: 1;
-}
-
-.genres,
-.moods,
-.characters,
-.voice-cast,
-.streaming,
-.gallery {
-  margin-bottom: 20px;
+.anime-detail-header img {
+  max-width: 200px;
 }
 
 .gallery-images {
   display: flex;
-  gap: 10px;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.gallery-images img {
-  width: 150px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-} */
+.gallery img {
+  max-height: 200px;
+}

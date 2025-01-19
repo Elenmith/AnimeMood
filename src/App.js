@@ -11,6 +11,7 @@ import Categories from "./components/Categories/Categories";
 import Moods from "./components/Moods/Moods";
 import MoodDetail from "./components/MoodDetails/MoodDetails"; // Nowa podstrona dla szczegółów nastroju
 import NotFound from "./components/NotFound";
+import About from "./components/About/About";
 
 function App() {
   const [animeList, setAnimeList] = useState([]);
@@ -41,6 +42,8 @@ function App() {
           <Route path="/moods" element={<Moods />} />
 
           <Route path="/moods/:mood" element={<MoodDetail />} />
+
+          <Route path="/about" element={<About />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>

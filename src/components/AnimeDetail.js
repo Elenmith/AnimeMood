@@ -33,11 +33,12 @@ const AnimeDetail = () => {
 
   return (
     <div className="anime-detail">
-      <div className="header">
+      <img className="detail-banner" src={anime.imageUrl} alt={anime.title} />
+      <div className="anime-detail-header">
         <img src={anime.imageUrl} alt={anime.title} />
         <div>
           <h1>{anime.title}</h1>
-          <p>Rating: {anime.rating}</p>
+          <p>Rating: {anime.rating} ⭐</p>
           <p>Duration: {anime.duration || "Unknown"}</p>
           <p>Release Date: {anime.releaseDate || "Unknown"}</p>
           <p>Director: {anime.director || "Unknown"}</p>
@@ -72,21 +73,21 @@ const AnimeDetail = () => {
         </ul>
       </div>
 
+      <div className="gallery">
+        <h3>Posters</h3>
+        <div className="gallery-images">
+          {anime.gallery?.map((image, index) => (
+            <img key={index} src={image} alt={`Gallery ${index}`} />
+          )) || <p>No images available</p>}
+        </div>
+      </div>
+
       <div className="streaming">
         <h3>Where to Watch</h3>
         <p>
           {anime.streamingPlatforms?.join(", ") ||
             "No streaming platforms available"}
         </p>
-      </div>
-
-      <div className="gallery">
-        <h3>Gallery</h3>
-        <div className="gallery-images">
-          {anime.gallery?.map((image, index) => (
-            <img key={index} src={image} alt={`Gallery ${index}`} />
-          )) || <p>No images available</p>}
-        </div>
       </div>
     </div>
   );
