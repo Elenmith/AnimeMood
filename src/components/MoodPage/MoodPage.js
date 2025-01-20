@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import "./MoodDetails.css";
 import axios from "axios";
 
 function MoodPage() {
-  const { mood } = useParams(); // Pobieramy parametr "mood" z URL
-  const [animeList, setAnimeList] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { mood } = useParams(); // Pobiera nastrój z URL
+  const [animeList, setAnimeList] = useState([]); // Stan dla listy anime
+  const [loading, setLoading] = useState(true); // Stan dla ładowania
+  const [error, setError] = useState(null); // Obsługa błędów
+  const navigate = useNavigate(); // Hook do nawigacji
 
   useEffect(() => {
     const fetchAnime = async () => {
@@ -16,6 +19,7 @@ function MoodPage() {
         setAnimeList(response.data);
         setLoading(false);
       } catch (err) {
+        setError(err.message);
         console.error("Błąd podczas pobierania anime:", err);
         setLoading(false);
       }
@@ -33,17 +37,32 @@ function MoodPage() {
   }
 
   return (
-    <div>
+    <div className="mood-detail">
       <h1>Anime for mood: {mood}</h1>
-      <ul>
-        {animeList.map((anime) => (
-          <li key={anime._id}>
-            <h2>{anime.title}</h2>
-            <p>Genres: {anime.genres.join(", ")}</p>
-            <p>Rating: {anime.rating}</p>
-          </li>
-        ))}
-      </ul>
+      {animeList.length > 0 ? (
+        <div className="anime-grid">
+          {animeList.map((anime) => (
+            <div
+              key={anime._id}
+              className="anime-card"
+              onClick={() => navigate(`/anime/${anime._id}`)} // Nawigacja po kliknięciu
+            >
+              <img
+                src={anime.imageUrl}
+                alt={anime.title}
+                className="anime-poster-mood"
+              />
+              <div className="anime-info">
+                <h2>{anime.title}</h2>
+                <p>Genres: {anime.genres.join(", ")}</p>
+                <p>Rating: {anime.rating}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p>No anime found for this mood.</p>
+      )}
     </div>
   );
 }
