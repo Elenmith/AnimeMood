@@ -36,7 +36,7 @@ The application is built using the following technologies:
 
 #### Clone the repository:
 ```
-git clone https://github.com/your-username/AnimeMood.git
+git clone https://github.com/Elenmith/AnimeMood.git
 ```
 
 #### Navigate to the project directory:
