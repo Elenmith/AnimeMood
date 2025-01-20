@@ -8,6 +8,7 @@ import MoodPage from "./components/MoodPage/MoodPage";
 import AnimeDetail from "./components/AnimeDetail";
 import Footer from "./components/Footer/Footer";
 import Categories from "./components/Categories/Categories";
+import CategoryDetail from "./components/Categories/CategoryDetail";
 import Moods from "./components/Moods/Moods";
 import MoodDetail from "./components/MoodDetails/MoodDetails"; // Nowa podstrona dla szczegółów nastroju
 import NotFound from "./components/NotFound";
@@ -33,6 +34,8 @@ function App() {
 
           {/* Strona wyników dla nastrojów */}
           <Route path="/moods/:mood" element={<MoodPage />} />
+
+          <Route path="/categories/:genre" element={<CategoryDetail />} />
 
           {/* Strona szczegółowa anime */}
           <Route path="/anime/:id" element={<AnimeDetail />} />
